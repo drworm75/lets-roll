@@ -10,6 +10,8 @@ namespace LetsRollApi.Models
     {
         public int Id { get; set; }
         [Required]
+        public string Name { get; set; }
+        [Required]
         public int MinPlayers { get; set; }
         public int MaxPlayers { get; set; }
         public int PlayTime { get; set; }

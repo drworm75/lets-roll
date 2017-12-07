@@ -27,6 +27,7 @@ namespace LetsRollApi.Migrations
                 new Game()
                 {
                     Id = 1,
+                    Name = "Settlers of Catan",
                     MinPlayers = 3,
                     MaxPlayers = 4,
                     PlayTime = 90,
@@ -36,6 +37,7 @@ namespace LetsRollApi.Migrations
                 new Game()
                 {
                     Id = 2,
+                    Name = "Carcassonne",
                     MinPlayers = 2,
                     MaxPlayers = 5,
                     PlayTime = 60,
@@ -45,6 +47,7 @@ namespace LetsRollApi.Migrations
                 new Game()
                 {
                     Id = 3,
+                    Name = "Battlestar Galactica",
                     MinPlayers = 3,
                     MaxPlayers = 6,
                     PlayTime = 240,
