@@ -18,16 +18,34 @@ namespace LetsRollApi.Controllers
         private LetsRollApiContext db = new LetsRollApiContext();
 
         // GET: api/Games
-        public IQueryable<Game> GetGames()
+        public IQueryable<GameDTO> GetGames()
         {
-            return db.Games;
+            var games = from g in db.Games
+                        select new GameDTO()
+                        {
+                            Id = g.Id,
+                            Name = g.Name,
+                            PublisherName = g.Publisher.Name
+
+                        };
+            return games;
         }
 
         // GET: api/Games/5
-        [ResponseType(typeof(Game))]
+        [ResponseType(typeof(GameDetailDTO))]
         public async Task<IHttpActionResult> GetGame(int id)
         {
-            Game game = await db.Games.FindAsync(id);
+            var game = await db.Games.Include(g => g.Publisher).Select(g => new GameDetailDTO()
+            {
+                Id = g.Id,
+                Name = g.Name,
+                MinPlayers = g.MinPlayers,
+                MaxPlayers = g.MaxPlayers,
+                PlayTime = g.PlayTime,
+                Age = g.Age,
+                PublisherName = g.Publisher.Name
+            }).SingleOrDefaultAsync(b => b.Id == id);
+
             if (game == null)
             {
                 return NotFound();
@@ -82,6 +100,15 @@ namespace LetsRollApi.Controllers
 
             db.Games.Add(game);
             await db.SaveChangesAsync();
+
+            db.Entry(game).Reference(x => x.Publisher).Load();
+
+            var dto = new GameDTO()
+            {
+                Id = game.Id,
+                Name = game.Name,
+                PublisherName = game.Publisher.Name
+            };
 
             return CreatedAtRoute("DefaultApi", new { id = game.Id }, game);
         }

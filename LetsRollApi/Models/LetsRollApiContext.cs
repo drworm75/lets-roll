@@ -17,10 +17,13 @@ namespace LetsRollApi.Models
     
         public LetsRollApiContext() : base("name=LetsRollApiContext")
         {
+            this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
         }
 
         public System.Data.Entity.DbSet<LetsRollApi.Models.Publisher> Publishers { get; set; }
 
         public System.Data.Entity.DbSet<LetsRollApi.Models.Game> Games { get; set; }
     }
+
+
 }
