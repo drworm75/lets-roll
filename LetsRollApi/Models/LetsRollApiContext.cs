@@ -23,6 +23,12 @@ namespace LetsRollApi.Models
         public System.Data.Entity.DbSet<LetsRollApi.Models.Publisher> Publishers { get; set; }
 
         public System.Data.Entity.DbSet<LetsRollApi.Models.Game> Games { get; set; }
+
+        public System.Data.Entity.DbSet<LetsRollApi.Models.Session> Sessions { get; set; }
+
+        public System.Data.Entity.DbSet<LetsRollApi.Models.Player> Players { get; set; }
+
+        public System.Data.Entity.DbSet<LetsRollApi.Models.PlayerSession> PlayerSessions { get; set; }
     }
 
 

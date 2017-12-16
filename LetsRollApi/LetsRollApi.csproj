@@ -230,7 +230,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlayersController.cs" />
+    <Compile Include="Controllers\PlayerSessionsController.cs" />
     <Compile Include="Controllers\PublishersController.cs" />
+    <Compile Include="Controllers\SessionsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -242,6 +245,10 @@
     <Compile Include="Migrations\201712070502310_GameName.Designer.cs">
       <DependentUpon>201712070502310_GameName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712140522484_PlayerSessions.cs" />
+    <Compile Include="Migrations\201712140522484_PlayerSessions.Designer.cs">
+      <DependentUpon>201712140522484_PlayerSessions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -251,6 +258,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LetsRollApiContext.cs" />
     <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\PlayerSession.cs" />
     <Compile Include="Models\Publisher.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -337,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712070502310_GameName.resx">
       <DependentUpon>201712070502310_GameName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712140522484_PlayerSessions.resx">
+      <DependentUpon>201712140522484_PlayerSessions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
