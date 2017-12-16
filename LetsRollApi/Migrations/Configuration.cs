@@ -16,7 +16,64 @@ namespace LetsRollApi.Migrations
         protected override void Seed(LetsRollApi.Models.LetsRollApiContext context)
         {
             // protected override void Seed(BookService.Models.BookServiceContext context)
-  
+
+            context.Sessions.AddOrUpdate(x => x.Id,
+                new Session()
+                {
+                    Id = 1,
+                    Location = "Game Point",
+                    Date = new DateTime(2017, 11, 28),
+                    GameId = 1
+                }
+            );
+
+            context.Players.AddOrUpdate(x => x.Id,
+                new Player()
+                {
+                    Id = 1,
+                    PlayerName = "Dwayne",
+                },
+                new Player()
+                {
+                    Id = 2,
+                    PlayerName = "Brooke",
+                },
+                new Player()
+                {
+                    Id = 3,
+                    PlayerName = "Reece",
+                }
+
+            );
+
+            context.PlayerSessions.AddOrUpdate(x => x.Id,
+                new PlayerSession()
+                {
+                    Id = 1,
+                    Score = 10,
+                    Win = true,
+                    PlayerId = 1,
+                    SessionId = 1
+                },
+                new PlayerSession()
+                {
+                    Id = 2,
+                    Score = 8,
+                    Win = false,
+                    PlayerId = 2,
+                    SessionId = 1
+                },
+                new PlayerSession()
+                {
+                    Id = 3,
+                    Score = 6,
+                    Win = false,
+                    PlayerId = 3,
+                    SessionId = 1
+                }
+            );
+
+
             context.Publishers.AddOrUpdate(x => x.Id,
                 new Publisher() { Id = 1, Name = "Mayfair Games" },
                 new Publisher() { Id = 2, Name = "Rio Grande Games" },
