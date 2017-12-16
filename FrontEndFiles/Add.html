@@ -1,0 +1,50 @@
+<html ng-app="testApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+</head>
+<body ng-controller="testController">
+
+    <!--THE VIEW.-->
+
+
+        <div style="float:left;padding:10px;margin:0 auto;">
+
+            <h3>Games & Publisher</h3>
+
+            <!-- LOOP.-->
+            <div> 
+                
+                <div class="col-md-4">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h2 class="panel-title">Games</h2>
+                    </div>
+                    <div class="panel-body">
+                      <ul class="list-unstyled"><h3 ng-repeat="x in response.data">{{x.Name}}<br> Published by: {{x.PublisherName}}<small><a href="#"><br>Details</a></small></h3>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div> -->
+                </div>
+
+                <div class="game-field">
+                    <h4>Game Name:</h4>
+                    <input type="text" ng-model="name" placeholder="Illuminati" /> <br>
+                    <h4>Publisher:</h4>
+                    <input type="text" ng-model="publisher" placeholder="Steve Jackson Games" /> <br>
+                    <h4>Minimum Number of Players:</h4>                    
+                    <input type="text" ng-model="minPlayers" placeholder="2" /> <br>
+                    <h4>Maximum Number of Players:</h4>
+                    <input type="text" ng-model="maxPlayers" placeholder="6" /> <br>
+                    <h4>Minimum Play Time in Minutes:</h4>
+                    <input type="text" ng-model="playTime" placeholder="60" /> <br>
+                    <h4>Minimum Age:</h4>
+                    <input type="text" ng-model="age" placeholder="12" /> <br>
+
+                    <p><button ng-click="add()">Add the info</button></p>
+                </div>
+            </div>
+    </div>
+</body>
+    <script src="script.js"></script>
+</html>

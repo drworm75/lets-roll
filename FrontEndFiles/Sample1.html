@@ -1,0 +1,41 @@
+<html ng-app="testApp">
+<head>
+    <title>Let's Roll</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  
+</head>
+<body ng-controller="testController">
+  <div class="page-header">
+    <h1>Let's Roll</h1>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title">Games</h2>
+        </div>
+        <div class="panel-body">
+          <ul class="list-unstyled"><h3 ng-repeat="x in response.data">{{x.Name}}<br> Published by: {{x.PublisherName}}<small><a href="#"><br>Details</a></small></h3>
+            <li>
+              <strong>
+              <!-- <span ng-repeat="x in response.data">{{x.PublisherName}}</span></strong>: <span data-bind="text: Title"></span> -->
+
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div> -->
+    </div>
+
+    <div class="col-md-4">
+      <!-- TODO: Book details -->
+    </div>
+
+    <div class="col-md-4">
+      <!-- TODO: Add new book -->
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
