@@ -1,0 +1,14 @@
+<html ng-app="myApp">
+<head>
+    <title>Session List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+</head>
+<body ng-controller="SessionListView">
+ 
+    <h2>{{intro}}</h2>
+    <h3 ng-repeat="x in response.data">{{x.Name}}</h3>
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>
