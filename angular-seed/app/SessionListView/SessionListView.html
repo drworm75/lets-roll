@@ -6,7 +6,7 @@
 <body ng-controller="SessionListView">
  
     <h2>{{intro}}</h2>
-    <h3 ng-repeat="x in response.data"><li><a href="#!/GameDetailView/{{x.Name}}">{{x.Name}}</a></li></h3>
+    <h3 ng-repeat="x in response.data"><li><a href="#!/GameDetailView/{{x.Id}}">{{x.Name}}</a></li></h3>
     
     
     <script src="script.js"></script>

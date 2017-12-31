@@ -1,1 +1,22 @@
-{{intro}}
+{{intro}} {{gameInfo.Name}}
+
+
+
+<table>
+  <tr>
+  	<td class="game-info">Publisher Name</td>
+    <td class="game-info">{{ gameInfo.PublisherName }}</td>
+  </tr>
+  <tr>
+  	<td class="game-info">Recommended Ages</td>
+    <td class="game-info">{{ gameInfo.Age }} and up</td>
+  </tr>
+  <tr>
+  	<td class="game-info">Play Time</td>
+    <td class="game-info">{{ gameInfo.PlayTime }} minutes</td>
+  </tr>
+  <tr>
+  	<td class="game-info">Number of Players</td>
+    <td class="game-info">{{ gameInfo.MinPlayers }} &#8211 {{ gameInfo.MaxPlayers }}</td>
+  </tr>   
+</table>
