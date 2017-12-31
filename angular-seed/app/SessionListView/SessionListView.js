@@ -1,16 +1,16 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp.SessionListView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'view1/view1.html',
-    controller: 'View1Ctrl'
+  $routeProvider.when('/SessionListView', {
+    templateUrl: 'SessionListView/SessionListView.html',
+    controller: 'SessionListViewCtrl'
   });
 }])
 
-.controller('View1Ctrl', function($scope, $http) {
-    $scope.home = "This is the homepage";
+.controller('SessionListViewCtrl', function($scope, $http) {
+    $scope.intro = "List of Game Sessions";
     
     $scope.getRequest = function () {
         console.log("I've been pressed!");  
@@ -22,5 +22,7 @@ angular.module('myApp.view1', ['ngRoute'])
             console.log("Unable to perform get request");
         });
      };
+
+     $scope.getRequest();
  
 });
