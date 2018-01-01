@@ -3,7 +3,7 @@
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
   'ngRoute',
-  'myApp.SessionListView',
+  'myApp.GamesListView',
   'myApp.GameDetailView',
   'myApp.NewGameView',
   'myApp.version'
@@ -11,5 +11,5 @@ angular.module('myApp', [
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 
-  $routeProvider.otherwise({redirectTo: '/SessionListView'});
+  $routeProvider.otherwise({redirectTo: '/GamesListView'});
 }]);
