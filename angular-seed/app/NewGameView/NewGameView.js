@@ -15,7 +15,7 @@ angular.module('myApp.NewGameView', ['ngRoute'])
 	});
 }])
 
-.controller('NewGameViewCtrl', function($scope, $http, $q) {
+.controller('NewGameViewCtrl', function($scope, $http, $q, $location) {
     $scope.intro = "Enter a new game";
 
   $scope.addNewGame = () => {
@@ -41,6 +41,7 @@ angular.module('myApp.NewGameView', ['ngRoute'])
 		data: newGameData,
 	}).then(function (success) {
 		console.log("Great Ceasar's Ghost!  The game has posted", success);
+		$location.url('/SessionListView');
 	});
 	    //   $http.post(`http://localhost:54854/api/Games`)
 	    //   .then((results) => {

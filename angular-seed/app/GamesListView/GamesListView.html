@@ -3,7 +3,7 @@
     <title>My Game List</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 </head>
-<body ng-controller="SessionListView">
+<body ng-controller="GamesListView">
  
     <h2>{{intro}}</h2>
     <h3 ng-repeat="x in response.data"><li><a href="#!/GameDetailView/{{x.Id}}">{{x.Name}}</a><button type="button" class="btn btn-default btn-info">Add Play Session</button></li></h3>

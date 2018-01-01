@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('myApp.SessionListView', ['ngRoute'])
+angular.module('myApp.GamesListView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/SessionListView', {
-    templateUrl: 'SessionListView/SessionListView.html',
-    controller: 'SessionListViewCtrl'
+  $routeProvider.when('/GamesListView', {
+    templateUrl: 'GamesListView/GamesListView.html',
+    controller: 'GamesListViewCtrl'
   });
 }])
 
-.controller('SessionListViewCtrl', function($scope, $http) {
+.controller('GamesListViewCtrl', function($scope, $http) {
     $scope.intro = "My Games";
     
     $scope.getRequest = function () {
