@@ -10,9 +10,11 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using LetsRollApi.Models;
+using System.Web.Http.Cors;
 
 namespace LetsRollApi.Controllers
 {
+    [EnableCors(origins: "http://localhost:8080", headers: "*", methods: "*")]
     public class GamesController : ApiController
     {
         private LetsRollApiContext db = new LetsRollApiContext();
@@ -103,10 +105,14 @@ namespace LetsRollApi.Controllers
 
             db.Entry(game).Reference(x => x.Publisher).Load();
 
-            var dto = new GameDTO()
+            var dto = new GameDetailDTO()
             {
                 Id = game.Id,
                 Name = game.Name,
+                MinPlayers = game.MinPlayers,
+                MaxPlayers = game.MaxPlayers,
+                PlayTime = game.PlayTime,
+                Age = game.Age,
                 PublisherName = game.Publisher.Name
             };
 

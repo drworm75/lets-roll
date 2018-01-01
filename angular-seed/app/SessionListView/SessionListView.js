@@ -10,7 +10,7 @@ angular.module('myApp.SessionListView', ['ngRoute'])
 }])
 
 .controller('SessionListViewCtrl', function($scope, $http) {
-    $scope.intro = "List of Game Sessions";
+    $scope.intro = "My Games";
     
     $scope.getRequest = function () {
         console.log("I've been pressed!");  
