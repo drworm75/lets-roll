@@ -1,0 +1,61 @@
+<html ng-app="myApp">
+<head>
+    <title>Enter a session</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+</head>
+<body ng-controller="NewSessionViewCtrl">
+
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          {{intro}}
+      </div>
+
+      <div class="panel-body">
+        <div class="form-group">
+          <label for="inputName" class="col-sm-4 control-label">Name</label>
+          <div class="col-sm-8">
+  	         <input type="text" class="form-control" placeholder="Ticket To Ride" ng-model="newGame.Name">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputMinPlayers" class="col-sm-4 control-label">Minumum Number of Players</label>
+          <div class="col-sm-8">
+            <input type="number" class="form-control" placeholder="2" ng-model="newGame.MinPlayers">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputMaxPlayers" class="col-sm-4 control-label">Maximum Number of Players</label>
+          <div class="col-sm-8">
+            <input type="number" class="form-control" placeholder="5" ng-model="newGame.MaxPlayers">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputPlayTime" class="col-sm-4 control-label">Play Time (in mintues)</label>
+          <div class="col-sm-8">
+            <input type="number" class="form-control" placeholder="90" ng-model="newGame.PlayTime">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputAge" class="col-sm-4 control-label">For Ages ___ and up</label>
+          <div class="col-sm-8">
+            <input type="number" class="form-control" placeholder="8" ng-model="newGame.Age"> 
+          </div>
+        </div>
+
+        <div class="form-group">  
+          <label for="inputPublisherName" class="col-sm-4 control-label">Publisher Name</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="Days Of Wonder" ng-model="newGame.Publisher.Name">
+           </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-default" ng-click="addNewSession()">Submit</button>
+    </div>
+  </div>
+</body>
+</html>
