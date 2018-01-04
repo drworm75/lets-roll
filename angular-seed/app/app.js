@@ -4,8 +4,10 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.GamesListView',
+  'myApp.SessionListView',
   'myApp.GameDetailView',
   'myApp.NewGameView',
+  'myApp.NewSessionView',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

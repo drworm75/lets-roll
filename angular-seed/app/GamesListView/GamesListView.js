@@ -9,7 +9,7 @@ angular.module('myApp.GamesListView', ['ngRoute'])
   });
 }])
 
-.controller('GamesListViewCtrl', function($scope, $http) {
+.controller('GamesListViewCtrl', function($scope, $http, $location) {
     $scope.intro = "My Games";
     
     $scope.getRequest = function () {
@@ -24,5 +24,35 @@ angular.module('myApp.GamesListView', ['ngRoute'])
      };
 
      $scope.getRequest();
- 
-});
+
+    $scope.gotoAddGame = () => {
+      console.log("Button!")
+      $location.url('/NewGameView');
+    };
+
+    $scope.gotoAddSession = (GameId) => {
+      console.log("Here's that game Id you wanted...", GameId);
+      //$scope.GameId = GameId;
+      // $scope.send = function() {
+      //   console.log ("Calling factory");
+      //   dataShare.sendData($scope.GameID);
+      // }
+    $location.url('/NewSessionView/'+GameId);
+    };
+  })
+
+// .factory('dataShare',function($rootScope){
+//   var service = {};
+//   service.data = false;
+//   service.sendData = function(data){
+//       this.data = data;
+//       console.log = ("this.data is...", this.data = data);
+
+//       $rootScope.$broadcast('data_shared');
+//   };
+//   service.getData = function(){
+//     return this.data;
+//   };
+//   return service;
+
+//});

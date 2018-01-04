@@ -6,7 +6,8 @@
 <body ng-controller="GamesListView">
  
     <h2>{{intro}}</h2>
-    <h3 ng-repeat="x in response.data"><li><a href="#!/GameDetailView/{{x.Id}}">{{x.Name}}</a><button type="button" class="btn btn-default btn-info">Add Play Session</button></li></h3>
+    <h3 ng-repeat="x in response.data"><li><a href="#!/GameDetailView/{{x.Id}}">{{x.Name}}</a><button type="button" class="btn btn-default btn-info" ng-click="gotoAddSession(x.Id)">Add Play Session</button></li></h3>
+    <div><button ng-click="gotoAddGame()">Add New Game</a></button></div>
     
     
     <script src="script.js"></script>

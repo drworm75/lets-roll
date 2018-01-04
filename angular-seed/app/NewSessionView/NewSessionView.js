@@ -9,7 +9,7 @@ angular.module('myApp.NewSessionView', ['ngRoute'])
 	};
 	$httpProvider.defaults.headers.put = {};
 	$httpProvider.defaults.headers.patch = {};
-	$routeProvider.when('/NewSessionView', {
+	$routeProvider.when('/NewSessionView/:id', {
 		templateUrl: 'NewSessionView/NewSessionView.html',
 		controller: 'NewSessionViewCtrl'
 	});
