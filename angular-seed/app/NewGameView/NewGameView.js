@@ -23,17 +23,6 @@ angular.module('myApp.NewGameView', ['ngRoute'])
   	console.log ("$scope.newGame", $scope.newGame);
     //$scope.newGame.uid = $rootScope.user.uid;
  	var newGameData = $scope.newGame;
- //    var newGameData = {
-	//     Name: "Illuminati",
-	//     MinPlayers: 2,
-	//     MaxPlayers: 8,
-	//     PlayTime: 60,
-	//     Age: 12,
-	//     Publisher: 
-	//     {
-	//     	Name: "Steve Jackson Games"
-	// 	}
-	// };
 	newGameData = JSON.stringify(newGameData);
 	$http({
 		method: 'POST',
@@ -43,16 +32,6 @@ angular.module('myApp.NewGameView', ['ngRoute'])
 		console.log("Great Ceasar's Ghost!  The game has posted", success);
 		$location.url('/SessionListView');
 	});
-	    //   $http.post(`http://localhost:54854/api/Games`)
-	    //   .then((results) => {
-	    //     resolve(results);
-	    //   })
-	    //   .catch((error) => {
-	    //     reject(error);
-	    //   }).catch((error) => {
-	    //   console.log("Add error", error);
-	    // });
-
    };
 });
 

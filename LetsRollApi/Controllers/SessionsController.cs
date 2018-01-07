@@ -14,19 +14,20 @@ using System.Web.Http.Cors;
 
 namespace LetsRollApi.Controllers
 {
-    [EnableCors(origins: "http://localhost:8080", headers: "*", methods: "*")]
+    [EnableCors("*", "*", "*")]
     public class SessionsController : ApiController
     {
         private LetsRollApiContext db = new LetsRollApiContext();
 
         // GET: api/Sessions
-        public IQueryable<SessionDTO> GetSessions()
+        public IQueryable<SessionDetailDTO> GetSessions()
         {
             var sessions = from s in db.Sessions
-                        select new SessionDTO()
+                        select new SessionDetailDTO()
                         {
                             Id = s.Id,
                             Date = s.Date,
+                            Location = s.Location, 
                             GameName = s.Game.Name
                         };
 
@@ -102,12 +103,35 @@ namespace LetsRollApi.Controllers
 
             db.Entry(session).Reference(x => x.Game).Load();
 
+            //if (db.Games.Count((a) => a.Name == session.Game.Name) == 0)
+            //{
+            //    var dto = new SessionDTO()
+            //    {
+            //        Id = session.Id,
+            //        Date = session.Date,
+            //        GameName = session.Game.Name
+            //    };
+
+            //}
+            //else
+            //{
+            //    var dto = new SessionDTO()
+            //    {
+            //        Id = session.Id,
+            //        Date = session.Date,
+            //        GameName = session.Game.Name
+            //    };
+            //}
+
             var dto = new SessionDTO()
             {
                 Id = session.Id,
                 Date = session.Date,
                 GameName = session.Game.Name
             };
+
+
+
 
             return CreatedAtRoute("DefaultApi", new { id = session.Id }, session);
         }

@@ -4,9 +4,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 </head>
 <body ng-controller="SessionsListView">
- 
-    <h2>{{intro}}</h2>
-    <h3 ng-repeat="x in response.data"><li><a href="#!/SessionsDetailView/{{x.Id}}"></a>{{x.Date | date:'mediumDate'}} {{x.GameName}}</li></h3>
+
+    <table>
+	    <th class="text-center" colspan="2"><h2>{{intro}}</h2></th>
+    	<tr ng-repeat="x in response.data"><td><h4>{{x.Date | date:'mediumDate'}}</h4></td><td><h4>{{x.GameName}}</h4></td><td><h4>{{x.Location}}</h4></td></h4></tr>
+    </table>
     
     
     <script src="script.js"></script>

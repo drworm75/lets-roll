@@ -9,8 +9,21 @@ angular.module('myApp.GamesListView', ['ngRoute'])
   });
 }])
 
-.controller('GamesListViewCtrl', function($scope, $http, $location) {
+.controller('GamesListViewCtrl', function($uibModal, $scope, $http, $location) {
     $scope.intro = "My Games";
+
+    $scope.open = function (idForGameToDelete) {
+
+      var modalInstance = $uibModal.open({
+        templateUrl: 'Popup/Popup.html',
+        controller: 'PopupCtrl',
+        resolve: {
+          deleteGame: function() {
+            return idForGameToDelete;
+          }
+        }
+    });
+  };
     
     $scope.getRequest = function () {
         console.log("I've been pressed!");  
@@ -23,7 +36,7 @@ angular.module('myApp.GamesListView', ['ngRoute'])
         });
      };
 
-     $scope.getRequest();
+    $scope.getRequest();
 
     $scope.gotoAddGame = () => {
       console.log("Button!")
@@ -39,7 +52,7 @@ angular.module('myApp.GamesListView', ['ngRoute'])
       // }
     $location.url('/NewSessionView/'+GameId);
     };
-  })
+  });
 
 // .factory('dataShare',function($rootScope){
 //   var service = {};
