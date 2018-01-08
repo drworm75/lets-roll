@@ -13,17 +13,13 @@ angular.module('myApp.Popup', ['ngRoute'])
     $scope.id = deleteGame;
     $scope.url = targetUrl;
     $scope.close = function () {
-        console.log("Trying to cancel");
-        console.log("targetUrl", targetUrl);
         $uibModalInstance.dismiss('cancel');
     }
 
     $scope.deleteItem = () => {
       $http.delete(`${$scope.url}/${$scope.id}`)
       .then(function successCallback(response){
-          console.log("response", response);
           $uibModalInstance.dismiss('cancel');
-          console.log("check url", $scope.url);
           if ($scope.url == "http://localhost:54854/api/Games")
           {
             $location.url('/GamesListView/');

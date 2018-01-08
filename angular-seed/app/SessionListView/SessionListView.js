@@ -29,12 +29,10 @@ angular.module('myApp.SessionListView', ['ngRoute'])
   };
     
 
-    $scope.getRequest = function () {
-    console.log("I've been pressed!");  
+    $scope.getRequest = function () { 
     $http.get("http://localhost:54854/api/Sessions")
     .then(function successCallback(response){
         $scope.response = response;
-        console.log(response);
     }, function errorCallback(response){
         console.log("Unable to perform get request");
     });
