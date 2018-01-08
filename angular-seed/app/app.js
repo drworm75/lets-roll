@@ -1,6 +1,5 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
 angular.module('myApp', [
   'ngRoute',
   'ui.bootstrap',
@@ -8,7 +7,6 @@ angular.module('myApp', [
   'myApp.SessionListView',
   'myApp.GameDetailView',
   'myApp.NewGameView',
-  //'myApp.EditGameView',
   'myApp.NewSessionView',
   'myApp.Popup',
   'myApp.version'

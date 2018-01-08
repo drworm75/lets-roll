@@ -30,12 +30,9 @@ angular.module('myApp.GamesListView', ['ngRoute'])
   };
     
     $scope.getRequest = function () {
-        console.log("I've been pressed!");  
         $http.get("http://localhost:54854/api/Games")
         .then(function successCallback(response){
             $scope.response = response;
-            console.log(response);
-            console.log("$scope.response", $scope.response.config.url);
         }, function errorCallback(response){
             console.log("Unable to perform get request");
         });
@@ -44,33 +41,10 @@ angular.module('myApp.GamesListView', ['ngRoute'])
     $scope.getRequest();
 
     $scope.gotoAddGame = () => {
-      console.log("Add Game Button!");
       $location.url('/NewGameView');
     };
 
     $scope.gotoAddSession = (GameId) => {
-      console.log("Here's that game Id you wanted...", GameId);
-      //$scope.GameId = GameId;
-      // $scope.send = function() {
-      //   console.log ("Calling factory");
-      //   dataShare.sendData($scope.GameID);
-      // }
-    $location.url('/NewSessionView/'+GameId);
+      $location.url('/NewSessionView/'+GameId);
     };
   });
-
-// .factory('dataShare',function($rootScope){
-//   var service = {};
-//   service.data = false;
-//   service.sendData = function(data){
-//       this.data = data;
-//       console.log = ("this.data is...", this.data = data);
-
-//       $rootScope.$broadcast('data_shared');
-//   };
-//   service.getData = function(){
-//     return this.data;
-//   };
-//   return service;
-
-//});

@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
@@ -19,33 +16,19 @@
 <body>
   <ul class="menu">
     <li><a href="#!/GamesListView">My Games</a></li>
-    <li><a href="#!/GameDetailView">Game Details</a></li>
     <li><a href="#!/NewGameView">New Game</a></li>
     <li><a href="#!/SessionListView">Sessions</a></li>
-    <li><a href="#!/NewSessionView">New Session</a></li>
-
   </ul>
-
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
-
   <div ng-view></div>
-
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- Latest compiled JavaScript -->
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
   <script src="app.js"></script>
   <script src="GamesListView/GamesListView.js"></script>
   <script src="GameDetailView/GameDetailView.js"></script>
   <script src="NewGameView/NewGameView.js"></script>
-  <script src="NewGameView/EditGameView.js"></script>
   <script src="SessionListView/SessionListView.js"></script>
   <script src="NewSessionView/NewSessionView.js"></script>
   <script src="Popup/Popup.js"></script>
