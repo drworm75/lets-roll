@@ -39,7 +39,7 @@ angular.module('myApp.NewSessionView', ['ngRoute'])
 			data: newSessionData,
 		}).then(function (success) {
 			console.log("Great Ceasar's Ghost!  The session has posted", success);
-			$location.url('/GameListView');
+			$location.url('/SessionListView');
 		});
 		    //   $http.post(`http://localhost:54854/api/Games`)
 		    //   .then((results) => {

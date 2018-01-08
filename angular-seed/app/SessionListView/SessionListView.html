@@ -7,7 +7,12 @@
 
     <table>
 	    <th class="text-center" colspan="2"><h2>{{intro}}</h2></th>
-    	<tr ng-repeat="x in response.data"><td><h4>{{x.Date | date:'mediumDate'}}</h4></td><td><h4>{{x.GameName}}</h4></td><td><h4>{{x.Location}}</h4></td></h4></tr>
+    	<tr ng-repeat="x in response.data">
+    		<td><h4>{{x.Date | date:'mediumDate'}}</h4></td>
+    		<td><h4>{{x.GameName}}</h4></td>
+    		<td><h4>{{x.Location}}</h4></td>
+    		<td><button type="button" class="btn btn-danger btn-info" ng-click="open(x.Id, response.config.url)">Delete Game</button></td>
+    	</tr>
     </table>
     
     

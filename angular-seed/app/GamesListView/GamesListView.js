@@ -11,8 +11,9 @@ angular.module('myApp.GamesListView', ['ngRoute'])
 
 .controller('GamesListViewCtrl', function($uibModal, $scope, $http, $location) {
     $scope.intro = "My Games";
+    $scope.response = "";
 
-    $scope.open = function (idForGameToDelete) {
+    $scope.open = function (idForGameToDelete, url) {
 
       var modalInstance = $uibModal.open({
         templateUrl: 'Popup/Popup.html',
@@ -20,6 +21,9 @@ angular.module('myApp.GamesListView', ['ngRoute'])
         resolve: {
           deleteGame: function() {
             return idForGameToDelete;
+          },
+          targetUrl: function() {
+            return url;
           }
         }
     });
@@ -31,6 +35,7 @@ angular.module('myApp.GamesListView', ['ngRoute'])
         .then(function successCallback(response){
             $scope.response = response;
             console.log(response);
+            console.log("$scope.response", $scope.response.config.url);
         }, function errorCallback(response){
             console.log("Unable to perform get request");
         });
@@ -39,7 +44,7 @@ angular.module('myApp.GamesListView', ['ngRoute'])
     $scope.getRequest();
 
     $scope.gotoAddGame = () => {
-      console.log("Button!")
+      console.log("Add Game Button!");
       $location.url('/NewGameView');
     };
 

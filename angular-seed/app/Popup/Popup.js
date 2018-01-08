@@ -9,19 +9,30 @@ angular.module('myApp.Popup', ['ngRoute'])
 //   });
 // }])
 
-.controller('PopupCtrl', function($scope, $location, deleteGame, $http, $uibModalInstance) {
+.controller('PopupCtrl', function($scope, $location, deleteGame, targetUrl, $http, $uibModalInstance) {
     $scope.id = deleteGame;
+    $scope.url = targetUrl;
     $scope.close = function () {
         console.log("Trying to cancel");
+        console.log("targetUrl", targetUrl);
         $uibModalInstance.dismiss('cancel');
     }
 
     $scope.deleteItem = () => {
-      $http.delete(`http://localhost:54854/api/Games/${$scope.id}`)
+      $http.delete(`${$scope.url}/${$scope.id}`)
       .then(function successCallback(response){
           console.log("response", response);
           $uibModalInstance.dismiss('cancel');
-          $location.url('/GamesListView/');
+          console.log("check url", $scope.url);
+          if ($scope.url == "http://localhost:54854/api/Games")
+          {
+            $location.url('/GamesListView/');
+          }
+          else if ($scope.url == "http://localhost:54854/api/Sessions")
+          {
+            $location.url('/SessionListView/');
+
+          }
       }, function errorCallback(response){
           console.log("Unable to perform delete request");
       });

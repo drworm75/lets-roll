@@ -9,8 +9,25 @@ angular.module('myApp.SessionListView', ['ngRoute'])
   });
 }])
 
-.controller('SessionListViewCtrl', function($scope, $http, $location) {
+.controller('SessionListViewCtrl', function($scope, $http, $uibModal, $location) {
     $scope.intro = "My sessions";
+
+    $scope.open = function (idForGameToDelete, url) {
+
+      var modalInstance = $uibModal.open({
+        templateUrl: 'Popup/Popup.html',
+        controller: 'PopupCtrl',
+        resolve: {
+          deleteGame: function() {
+            return idForGameToDelete;
+          },
+          targetUrl: function() {
+            return url;
+          }
+        }
+    });
+  };
+    
 
     $scope.getRequest = function () {
     console.log("I've been pressed!");  
