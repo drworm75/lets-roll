@@ -11,15 +11,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-  <link rel="stylesheet" href="app.css">
+
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="app.css">
 </head>
 <body>
   <ul class="menu">
     <li><a href="#!/GamesListView">My Games</a></li>
     <li><a href="#!/GameDetailView">Game Details</a></li>
     <li><a href="#!/NewGameView">New Game</a></li>
+    <li><a href="#!/SessionListView">Sessions</a></li>
+    <li><a href="#!/NewSessionView">New Session</a></li>
+
   </ul>
 
   <!--[if lt IE 7]>
@@ -36,11 +40,15 @@
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
   <script src="app.js"></script>
   <script src="GamesListView/GamesListView.js"></script>
   <script src="GameDetailView/GameDetailView.js"></script>
   <script src="NewGameView/NewGameView.js"></script>
+  <script src="NewGameView/EditGameView.js"></script>
+  <script src="SessionListView/SessionListView.js"></script>
+  <script src="NewSessionView/NewSessionView.js"></script>
+  <script src="Popup/Popup.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>

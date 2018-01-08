@@ -28,4 +28,7 @@
     padding-right: 20px;
 }
 
+td, th {
+  padding: 10px;
+}
 

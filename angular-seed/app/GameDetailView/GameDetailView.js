@@ -9,7 +9,7 @@ angular.module('myApp.GameDetailView', ['ngRoute'])
   });
 }])
 
-.controller('GameDetailViewCtrl', function($scope, $http, $routeParams) {
+.controller('GameDetailViewCtrl', function($scope, $http, $routeParams, $location) {
 	var id = $routeParams.id
     $scope.intro = "Details for";
     console.log("$routeParams.id", id);
@@ -24,6 +24,13 @@ angular.module('myApp.GameDetailView', ['ngRoute'])
             console.log("Unable to perform get request");
         });
      };
+
+    $scope.editGame = function () {
+      var gameId = $routeParams.id;
+      console.log("Let's Edit gameId", gameId);
+
+      $location.url('/NewGameView/'+gameId);
+    }
 
      $scope.getDetails(id);
 });

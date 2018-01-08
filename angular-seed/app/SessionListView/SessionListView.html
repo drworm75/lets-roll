@@ -1,0 +1,21 @@
+<html ng-app="myApp">
+<head>
+    <title>My Sessions</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+</head>
+<body ng-controller="SessionsListView">
+
+    <table>
+	    <th class="text-center" colspan="2"><h2>{{intro}}</h2></th>
+    	<tr ng-repeat="x in response.data">
+    		<td><h4>{{x.Date | date:'mediumDate'}}</h4></td>
+    		<td><h4>{{x.GameName}}</h4></td>
+    		<td><h4>{{x.Location}}</h4></td>
+    		<td><button type="button" class="btn btn-danger btn-info" ng-click="open(x.Id, response.config.url)">Delete Game</button></td>
+    	</tr>
+    </table>
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>

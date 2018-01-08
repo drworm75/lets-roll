@@ -10,24 +10,42 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using LetsRollApi.Models;
+using System.Web.Http.Cors;
 
 namespace LetsRollApi.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class SessionsController : ApiController
     {
         private LetsRollApiContext db = new LetsRollApiContext();
 
         // GET: api/Sessions
-        public IQueryable<Session> GetSessions()
+        public IQueryable<SessionDetailDTO> GetSessions()
         {
-            return db.Sessions;
+            var sessions = from s in db.Sessions
+                        select new SessionDetailDTO()
+                        {
+                            Id = s.Id,
+                            Date = s.Date,
+                            Location = s.Location, 
+                            GameName = s.Game.Name
+                        };
+
+            return sessions;
         }
 
         // GET: api/Sessions/5
-        [ResponseType(typeof(Session))]
+        [ResponseType(typeof(SessionDetailDTO))]
         public async Task<IHttpActionResult> GetSession(int id)
         {
-            Session session = await db.Sessions.FindAsync(id);
+            var session = await db.Sessions.Include(s => s.Game).Select(s =>
+                new SessionDetailDTO()
+                {
+                    Id = s.Id,
+                    Date = s.Date,
+                    Location = s.Location,
+                    GameName = s.Game.Name,
+                }).SingleOrDefaultAsync(g => g.Id == id);
             if (session == null)
             {
                 return NotFound();
@@ -82,6 +100,38 @@ namespace LetsRollApi.Controllers
 
             db.Sessions.Add(session);
             await db.SaveChangesAsync();
+
+            db.Entry(session).Reference(x => x.Game).Load();
+
+            //if (db.Games.Count((a) => a.Name == session.Game.Name) == 0)
+            //{
+            //    var dto = new SessionDTO()
+            //    {
+            //        Id = session.Id,
+            //        Date = session.Date,
+            //        GameName = session.Game.Name
+            //    };
+
+            //}
+            //else
+            //{
+            //    var dto = new SessionDTO()
+            //    {
+            //        Id = session.Id,
+            //        Date = session.Date,
+            //        GameName = session.Game.Name
+            //    };
+            //}
+
+            var dto = new SessionDTO()
+            {
+                Id = session.Id,
+                Date = session.Date,
+                GameName = session.Game.Name
+            };
+
+
+
 
             return CreatedAtRoute("DefaultApi", new { id = session.Id }, session);
         }

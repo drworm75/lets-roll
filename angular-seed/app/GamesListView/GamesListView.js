@@ -9,8 +9,25 @@ angular.module('myApp.GamesListView', ['ngRoute'])
   });
 }])
 
-.controller('GamesListViewCtrl', function($scope, $http) {
+.controller('GamesListViewCtrl', function($uibModal, $scope, $http, $location) {
     $scope.intro = "My Games";
+    $scope.response = "";
+
+    $scope.open = function (idForGameToDelete, url) {
+
+      var modalInstance = $uibModal.open({
+        templateUrl: 'Popup/Popup.html',
+        controller: 'PopupCtrl',
+        resolve: {
+          deleteGame: function() {
+            return idForGameToDelete;
+          },
+          targetUrl: function() {
+            return url;
+          }
+        }
+    });
+  };
     
     $scope.getRequest = function () {
         console.log("I've been pressed!");  
@@ -18,11 +35,42 @@ angular.module('myApp.GamesListView', ['ngRoute'])
         .then(function successCallback(response){
             $scope.response = response;
             console.log(response);
+            console.log("$scope.response", $scope.response.config.url);
         }, function errorCallback(response){
             console.log("Unable to perform get request");
         });
      };
 
-     $scope.getRequest();
- 
-});
+    $scope.getRequest();
+
+    $scope.gotoAddGame = () => {
+      console.log("Add Game Button!");
+      $location.url('/NewGameView');
+    };
+
+    $scope.gotoAddSession = (GameId) => {
+      console.log("Here's that game Id you wanted...", GameId);
+      //$scope.GameId = GameId;
+      // $scope.send = function() {
+      //   console.log ("Calling factory");
+      //   dataShare.sendData($scope.GameID);
+      // }
+    $location.url('/NewSessionView/'+GameId);
+    };
+  });
+
+// .factory('dataShare',function($rootScope){
+//   var service = {};
+//   service.data = false;
+//   service.sendData = function(data){
+//       this.data = data;
+//       console.log = ("this.data is...", this.data = data);
+
+//       $rootScope.$broadcast('data_shared');
+//   };
+//   service.getData = function(){
+//     return this.data;
+//   };
+//   return service;
+
+//});

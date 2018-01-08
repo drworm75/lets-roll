@@ -1,0 +1,35 @@
+<html ng-app="myApp">
+<head>
+    <title>Enter a session</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+</head>
+<body ng-controller="NewSessionViewCtrl">
+
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          {{intro}}
+      </div>
+
+      <div class="panel-body">
+        <div class="form-group">
+          <label for="inputName" class="col-sm-4 control-label">Date (YYYY/MM/DD)</label>
+          <div class="col-sm-8">
+  	         <input type="text" class="form-control" placeholder="2017/10/31" ng-model="newSession.Date">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputMinPlayers" class="col-sm-4 control-label">Location</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="2" ng-model="newSession.Location">
+          </div>
+        </div>
+
+
+      </div>
+      <button type="submit" class="btn btn-default" ng-click="addNewSession()">Submit</button>
+    </div>
+  </div>
+</body>
+</html>
