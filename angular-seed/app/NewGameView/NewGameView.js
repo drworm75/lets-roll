@@ -9,7 +9,8 @@ angular.module('myApp.NewGameView', ['ngRoute'])
 	};
 	$httpProvider.defaults.headers.put = {};
 	$httpProvider.defaults.headers.patch = {};
-	$routeProvider.when('/NewGameView', {
+	$routeProvider
+    .when('/NewGameView', {
 		templateUrl: 'NewGameView/NewGameView.html',
 		controller: 'NewGameViewCtrl'
 	});
@@ -30,7 +31,7 @@ angular.module('myApp.NewGameView', ['ngRoute'])
 		data: newGameData,
 	}).then(function (success) {
 		console.log("Great Ceasar's Ghost!  The game has posted", success);
-		$location.url('/SessionListView');
+		$location.url('/GamesListView');
 	});
    };
 });
