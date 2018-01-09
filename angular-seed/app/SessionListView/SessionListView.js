@@ -10,7 +10,7 @@ angular.module('myApp.SessionListView', ['ngRoute'])
 }])
 
 .controller('SessionListViewCtrl', function($scope, $http, $uibModal, $location) {
-    $scope.intro = "My sessions";
+    $scope.intro = "My Sessions";
 
     $scope.open = function (idForGameToDelete, url) {
 
