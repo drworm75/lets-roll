@@ -33,6 +33,7 @@ angular.module('myApp.SessionListView', ['ngRoute'])
     $http.get("http://localhost:54854/api/Sessions")
     .then(function successCallback(response){
         $scope.response = response;
+        console.log($scope.response)
     }, function errorCallback(response){
         console.log("Unable to perform get request");
     });

@@ -5,15 +5,17 @@
 </head>
 <body ng-controller="GamesListView">
  
-    <table>
-	    <th class="text-center" colspan="3"><h2>{{intro}}</h2></th>
-	    <tr ng-repeat="x in response.data">
-	    	<td><a href="#!/GameDetailView/{{x.Id}}"><h4>{{x.Name}}</h4></a></td>
-	    	<td><button type="button" class="btn btn-default btn-info" ng-click="gotoAddSession(x.Id)">Add Play Session</button></td>
-	    	<td><button type="button" class="btn btn-danger btn-info" ng-click="open(x.Id, response.config.url)">Delete Game</button></td></tr>
-	    <tr><td><h4>Couldn't find the game you played?</h4></td><td class="text-center" colspan="2"><div><button ng-click="gotoAddGame()">Add New Game</a></button></div></td></tr>
+	<div class="container-fluid">    
+	    <table class="table">
+		    <th class="text-center" colspan="3"><h2>{{intro}}</h2></th>
+		    <tr ng-repeat="x in response.data | orderBy : 'Name'">
+		    	<td><a href="#!/GameDetailView/{{x.Id}}"><h4>{{x.Name}}</h4></a></td>
+		    	<td><button type="button" class="btn btn-default btn-info" ng-click="gotoAddSession(x.Id)">Add Play Session</button></td>
+		    	<td><button type="button" class="btn btn-danger btn-info" ng-click="open(x.Id, response.config.url)">Delete Game</button></td></tr>
+		    <tr><td><h4>Couldn't find the game you played?</h4></td><td class="text-center" colspan="2"><div><button ng-click="gotoAddGame()">Add New Game</a></button></div></td></tr>
 
-	</table>
+		</table>
+	</div>
 
 	    
     

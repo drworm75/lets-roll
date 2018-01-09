@@ -32,3 +32,10 @@ td, th {
   padding: 10px;
 }
 
+.table {
+    border-radius: 5px;
+    width: 50%;
+    margin: 0px auto;
+    float: none;
+}
+
